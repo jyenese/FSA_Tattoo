@@ -3,7 +3,9 @@ const app = express();
 const PORT = 3000;
 
 app.get("/", (req, res) => {
-    res.send("Full Stack App init commit");
+    res.json({
+        data: "Full Stack app"
+    })
 })
 
 app.listen(PORT, () => {
