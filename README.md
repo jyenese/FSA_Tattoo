@@ -1,128 +1,134 @@
-T3A2-A Full Stack App – Part A
+#### T3A2-A Full Stack App – Part A
 Team: Jye CM, Chris L
-Requirement 1: Description of your website including:
-Purpose 
-Functionality/Features
-Target Audience
-Tech Stack 
 
-Description of the website
+**Requirement 1**: 
+Description of your website including:
+- Purpose 
+- Functionality/Features
+- Target Audience
+- Tech Stack 
+
+**Description of the website**
+
 Our team is redesigning and restructuring a website for a tattoo shop called Garage Ink. Our client currently has a functional website but has allowed us to use their IP for the purpose of this assignment. Our website remains property of Coder Academy and will not be incorporated into real world business practises by Garage Ink. Nonetheless, Garage Ink has provided us with some real world suggestions and user stories that they feel are appropriate for consideration when designing a website for their business. 
+
 A tattoo website needs to convey a certain amount of information to its potential customers in order to both attract clients as well as screen out unwanted clients. Some of the information that a site needs to provide includes:
-Tattoo styles
-Location
-Gallery
-Number of Artists 
-Contact Information
-Links to social media
+- Tattoo styles
+- Location
+- Gallery
+- Number of Artists 
+- Contact Information
+- Links to social media
+
 The information listed above is imperative to business operations as it helps provide customers with clear and consistent guidelines in regards to expectations.
+
 The home page of the website will establish the navigation of the page alongside presentation of a complete gallery of all artists that work at Garage Ink. The home page will also group artists by the styles that they work in and further provide a means for users to see the individual portfolio of an artist that piques their interest.
+
 The home page will provide a brief introduction/about us section that will introduce clients to the studio.
 The website will be an image focused site that promotes the artists and their portfolio. Each artist will be rendered via a reusable component. The website is a method for customers to find an artist and further connect with the artist they feel is right for them.
-Purpose
+
+**Purpose**
 There are a number of factors to consider when discussing the purpose of a tattoo website. Some of the key focus points are:
-Showcasing the portfolio of the artists’ 
-Booking appointments or consultations with a preferred artist
-Establishes a brand and online presence for artists 
-Provides individual recommendations in regards to aftercare techniques and products
-Showcasing an artists’ portfolio 
+- Showcasing the portfolio of the artists’ 
+- Booking appointments or consultations with a preferred artist
+- Establishes a brand and online presence for artists 
+- Provides individual recommendations in regards to aftercare techniques and products
+
+**Showcasing an artists’ portfolio**
+
 Artists advertise their work history to new and existing customers by implementing a portfolio. In the tattoo industry, a portfolio is a gallery of art that displays previous pieces that the artist designed and then tattooed. Portfolios are also a means to inform clients of the locations that the artist works. For example, many artists partake in Guest Spot Appearances. A guest spot is where the artist will move around and work at different locations/studios temporarily before returning to their home studio/location.
+
 All of this information needs to be conveyed in a clear and simple manner so that customers can find it and make decisions based upon the information provided.
 
-Booking appointments/consultations
-Consultations are an opportunity for the client to meet the artist before committing to a tattoo. From the client’s perspective, they are used to convey ideas, stories, reference photos and availabilities. From the artist’s perspective, they are used to explain any and all limitations in regards to tattoo placements and reference photo issues (too blurry, copyright issues etc). Artists also use this time to provide an estimate to the client pertaining to expected time to complete the piece as well as the costs involved. 
+**Booking appointments/consultations**
 
-Establishes a brand/online presence 
+Consultations are an opportunity for the client to meet the artist before committing to a tattoo. From the client’s perspective, they are used to convey ideas, stories, reference photos and availabilities. From the artist’s perspective, they are used to explain any and all limitations in regards to tattoo placements and reference photo issues (too blurry, copyright issues etc). 
+
+Artists also use this time to provide an estimate to the client pertaining to expected time to complete the piece as well as the costs involved. 
+
+**Establishes a brand/online presence**
+
 Tattoo artists earn a living by producing a reliable standard of work that attracts clients. This however, is one small factor of an overall larger picture.
 Tattoo artists leverage social media and other online websites to gain increased reach and in turn, generate a larger audience/client base. Unlike physical advertisements, online advertisements are capable of reaching clients around the country and even the world. By creating a strong online presence,  artists can achieve the following:
-Engage with a larger target audience
-Connect with other industry professionals 
-Establish a reputation that is easily accessible to new clients
-Establish credibility in terms of skill, knowledge and opinion
+- Engage with a larger target audience
+- Connect with other industry professionals 
+- Establish a reputation that is easily accessible to new clients
+- Establish credibility in terms of skill, knowledge and opinion
+
 Connecting with other industry professionals opens the door to partaking in events such as Guest Spot Appearances and Tattoo Conventions. Both of those events in turn generate more income and reputation for the artist.
-Summary 
+
+**Summary**
+
 With consideration of the previous subheadings and listed items, the purpose of our website can be understood more clearly. 
+
 Our website aims to promote the artists at Garage Ink in a manner that is more effective than the current existing website. Additionally, the intention of our website is display content to clients in a manner that is easily digestible, visually appearing and intuitive to navigate. By considering the fundamental reasons/purposes of a tattoo website, we will strive to employ modern web standards and techniques to the site in order to better convey a professional and reliable business. 
 
 
+**Features**
 
-
-
-
-
-
-
-
-
-Features
 Our application will boast a number of features; some of these features bring a larger magnitude of impact to the visual or computational behaviour of the site whereas others a merely quality of life improvements that have been suggested to us by our client, Garage Ink.
+
 The feature list is as follows:
-Showcase galleries of different tattoo styles and artists' portfolios.
-Allow users to book appointments and consult with artists online.
-Provide educational resources such as aftercare instructions and FAQs.
-Create a social community where users can share their tattoos, connect with artists, and exchange ideas.
-Display pricing information for different types of tattoos and add-ons such as touch-ups.
-Include customer reviews and testimonials to build trust and credibility.
-Use high-quality images and videos to create a visually appealing website.
-Implement a search bar or filters to help users easily navigate the galleries and find the style they're interested in.
-Offer a blog section to share industry news, tips, and behind-the-scenes content.
-Create a "Tattoo of the Day" feature to showcase a daily featured tattoo and its story.
-Allow users to book appointments and purchase gift certificates through the website.
+- Showcase galleries of different tattoo styles and - artists' portfolios.
+- Allow users to book appointments and consult with artists online.
+- Provide educational resources such as aftercare instructions and FAQs.
+- Create a social community where users can share their tattoos, connect with artists, and exchange ideas.
+- Display pricing information for different types of tattoos and add-ons such as touch-ups.
+- Include customer reviews and testimonials to build trust and credibility.
+- Use high-quality images and videos to create a visually appealing website.
+- Implement a search bar or filters to help users easily navigate the galleries and find the style they're interested in.
+- Offer a blog section to share industry news, tips, and behind-the-scenes content.
+- Create a "Tattoo of the Day" feature to showcase a daily featured tattoo and its story.
+- Allow users to book appointments and purchase gift certificates through the website.
 
-Target Audience
+**Target Audience**
+
 Tattoo websites are created to engage with multiple different audiences. The audiences that are specifically targeted with our application are:
-People interested in getting a tattoo
-People interested in finding a new artist 
-People interested in learning about the aftercare of a tattoo
-People interested in researching or considering a variety of tattoo styles and techniques 
-Other tattoo shops/artists that are interested in networking or undertaking a guest spot at the studio
+- People interested in getting a tattoo
+- People interested in finding a new artist 
+- People interested in learning about the aftercare of a tattoo
+- People interested in researching or considering a variety of tattoo styles and techniques 
+- Other tattoo shops/artists that are interested in networking or undertaking a guest spot at the studio
+
 Upon reviewing the target audience for the site, it is clear that our application needs to provide key information such as;
-Artist information and portfolios 
-Logistics information such as location and nearby accommodation or transport
-Modern and accurate aftercare information, potentially more generalised to cater to a wider audience
+- Artist information and portfolios 
+- Logistics information such as location and nearby accommodation or transport
+- Modern and accurate aftercare information, potentially more generalised to cater to a wider audience
 
 
 
+**Tech Stack**
 
-
-
-
-
-
-
-
-
-Tech Stack 
 The tech involved with developing our Front End is as follows:
-Html
-Css
-TailwindCSS (Framework)
-JavaScript 
-React
+- HTML
+- CSS
+- TailwindCSS (Framework)
+- JavaScript 
+- React
 The tech involved with developing our API and Back End are as follows:
-MongoDB
-Express (Node.js framework)
-Node.js
+- MongoDB
+- Express (Node.js framework)
+- Node.js
 
-React
+**React**
+
 This is a JavaScript library that is used to build User interfaces by means of reusable components.
-TailwindCSS
+
+**TailwindCSS**
+
 TailwindCSS is a utility first CSS framework that provides consistent design restrictions in order to produce reliable and consistent design patterns. TailwindCSS is used inline and further helps reduce the total number of files in an application. A feature that we intend to leverage is known as ‘purge’. TailwindCSS is able to detect unused CSS utilities and purge them from the production build, this results in a marginally smaller overall file size as well as DRY styling.
-MongoDB
+
+**MongoDB**
+
 MongoDB is a document-oriented database that utilises JSON like document structures with optional schemas. MongoDB stores its documents in collections and as a result, returns lightning-fast CRUD operations.
-Express
+
+**Express**
+
 This is a Back End framework incorporated for the development of RESTful APIs. It has many incredibly useful features such as robust routing (HTTP), high performance focus and also extensive test coverage.
-Node
+
+**Node**
+
 Node is an open-source server environment/runtime. It is capable of generating dynamic page content, CRUD operations and database modification.
-
-
-
-
-
-
-
-
-
 
 
 Current Functionality of Existing Website

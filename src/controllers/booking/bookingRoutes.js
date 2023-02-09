@@ -31,8 +31,8 @@ bookingRouter.get("/", (req, res) => {
     res.json(bookings)
 })
 
-bookingRouter.get("/bookings/:bookingId", (req, res) => {
-    const booking = bookings[req.params.bookingId]
+bookingRouter.get("/:bookingId", (req, res) => {
+    const booking = bookings[req.params.bookingId];
     if(!booking){
         return res.status(404).json({
             error: "Booking not found"
