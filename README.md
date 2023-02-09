@@ -130,215 +130,37 @@ This is a Back End framework incorporated for the development of RESTful APIs. I
 
 Node is an open-source server environment/runtime. It is capable of generating dynamic page content, CRUD operations and database modification.
 
+<details>
+<summary>Current Functionality of Existing Website</summary>
 
-Current Functionality of Existing Website
-Home Page Screenshot #1
+![homepage1](images/homepage_1-1.jpg)
 
+![homepage2](images/homepage_2.jpg)
 
+![homepage2](images/homepage_3.jpg)
 
+</details>
 
+<details>
+<summary>About Us Screenshot</summary>
 
+![aboutus](images/about_us-1.jpg)
 
+</details>
 
+<details>
+<summary>Artist Profile Screenshot</summary>
 
+![artist_profil](images/artist_profile1.jpg)
 
+</details>
 
+<details>
+<summary>Social Tab Screenshot</summary>
 
+![aboutus](images/social.jpg)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Home Page Screenshot #2
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Home Page Screenshot #3
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-About Us Screenshot 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Artist Profile Screenshot
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Social Tab Screenshot
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</details>
 
 Summary of existing functionality 
 Navigation
