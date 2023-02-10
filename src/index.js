@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 const bookingRouter = require('./controllers/booking/bookingRoutes.js');
-
+// const bookingRouter = require('./controllers/booking/bookingRoutes.js');
+app.use(express.json());
 app.use("/bookings", bookingRouter);
 
 app.get("/", (req, res) => {

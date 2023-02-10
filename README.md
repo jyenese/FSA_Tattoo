@@ -28,6 +28,7 @@ The home page will provide a brief introduction/about us section that will intro
 The website will be an image focused site that promotes the artists and their portfolio. Each artist will be rendered via a reusable component. The website is a method for customers to find an artist and further connect with the artist they feel is right for them.
 
 **Purpose**
+
 There are a number of factors to consider when discussing the purpose of a tattoo website. Some of the key focus points are:
 - Showcasing the portfolio of the artists’ 
 - Booking appointments or consultations with a preferred artist
@@ -105,6 +106,7 @@ The tech involved with developing our Front End is as follows:
 - TailwindCSS (Framework)
 - JavaScript 
 - React
+
 The tech involved with developing our API and Back End are as follows:
 - MongoDB
 - Express (Node.js framework)
@@ -179,6 +181,7 @@ The studio has artists that produce pieces in a wide variety of styles. These in
 - Black and Grey realism 
 - Blackwork 
 - Animal portraits 
+
 Above, I have provided just a few of the styles that are produced by artists at the studio. The site does not display this anywhere on the home page and briefly describes it on the artist’s profile page.
 
 Some of the artists specialities overlap and as such, they should be grouped by category to provide the client/user with options regarding their choice of artist or even style.
@@ -364,11 +367,11 @@ Navigation functionality may extend more in the direction of a mobile friendly n
 <details>
 <summary>Mobile Wireframes</summary>
 
-![DT wireframes](images/DT_homepage.jpg)
+![DT wireframes](images/MB_homepage.jpg)
 
-![DT wireframes](images/DT_galleries.jpg)
+![DT wireframes](images/MB_galleries.jpg)
 
-![DT wireframes](images/DT_user_related_pages.jpg)
+![DT wireframes](images/MB_user_related_pages.jpg)
 
 </details>
 
