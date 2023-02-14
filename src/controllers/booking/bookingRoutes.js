@@ -6,26 +6,33 @@ const { getBookings,
  } = require("./bookingController.js");
 const bookingRouter = express.Router();
 
-bookingRouter.get("/", (req, res) => {
-    const bookings = getBookings();
+bookingRouter.get("/", async (req, res) => {
+    const bookings = await getBookings();
     res.json(bookings)
 })
 
-bookingRouter.post("/consultations", async (req, res) => {
+bookingRouter.post("/new", async (req, res) => {
     console.log(req.body)
-    const booking = await createBooking({
-        name: req.body.name,
-        email: req.body.email,
-        phone: req.body.phone,
-        dob: req.body.dob,
-        artist: req.body.artist,
-        availability: req.body.availability,
-    })
-    res.json(booking)
+    try {
+        const booking = await createBooking({
+            name: req.body.name,
+            email: req.body.email,
+            phone: req.body.phone,
+            dob: req.body.dob,
+            preferences: req.body.preferences,   
+        })
+        res.json(booking)   
+    } catch (error) {
+        console.error(error)
+        return res.status(400).json({
+            error: `error creating booking: ${error.message}`
+        })   
+    }
+    
 })
 
-bookingRouter.get("/consultations/:userId", async (req, res) => {
-    const booking = getBookingsByUserId(req.params.userId);
+bookingRouter.get("/new/:userId", async (req, res) => {
+    const booking = await getBookingsByUserId(req.params.userId);
     if(!booking){
         return res.status(404).json({
             error: "Booking not found"
@@ -34,8 +41,8 @@ bookingRouter.get("/consultations/:userId", async (req, res) => {
     res.json(booking)
 })
 
-bookingRouter.get("/:bookingId", (req, res) => {
-    const booking = getBookingsById(req.params.bookingId);
+bookingRouter.get("/:bookingId",async (req, res) => {
+    const booking = await getBookingsById(req.params.bookingId);
     if(!booking){
         return res.status(404).json({
             error: "Booking not found"

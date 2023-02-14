@@ -1,9 +1,15 @@
 const mongoose = require('mongoose')
 
-const { validateAge } = require('../controllers/booking/bookingController.js')
+
+const PreferenceSchema = new mongoose.Schema({
+    artist: String,
+    availability: String,
+   
+})
 
 const BookingSchema = new mongoose.Schema({
-    name:{
+    name:
+    {
         type: String,
         required: true,
     },
@@ -16,20 +22,12 @@ const BookingSchema = new mongoose.Schema({
         required: true,
     },
     dob: {
-        type: Date,
-        required: true,
-        date: validateAge,
-    },
-    artist: {
         type: String,
         required: true,
     },
-    availability: {
-        type: Date,
-        required: true,
-    },
-})
-
+    preferences: [PreferenceSchema]
+}
+)
 
 const Booking = mongoose.model('Booking', BookingSchema)
 

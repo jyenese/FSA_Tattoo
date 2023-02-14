@@ -1,72 +1,77 @@
 const express = require("express");
-// const Booking = require("../../models/booking.js");
+const Booking = require("../../models/booking");
 
-const bookings = [
-    { 
-        user_id: 1,
-        name: "John",
-        email: "john@gmail.com",
-        phone: "1234567890",
-        dob: "01/01/2000"[
-            {
-                artist: "Artist 3",
-                availability: "2021-01-11",
-            }
-        ]
-    },
-    {
-        user_id: 2,
-        name: "Jane",
-        email: "jane@gmail.com",
-        phone: "1234567890",
-        dob: "01/01/2000"[
-            {
-                artist: "Artist 1",
-                availability: "2021-09-01",
-            }
-        ]
-    },
-]
+const moment = require("moment");
 
-function validateAge($birthday, $age = 18)
-{
-    if(is_string($birthday)) {
-        $birthday = strtotime($birthday);
+// const bookings = [
+//     { 
+//         user_id: 1,
+//         name: "John",
+//         email: "john@gmail.com",
+//         phone: "1234567890",
+//         dob: "01/01/2000",
+//             preferences: [
+//                 {
+//                 artist: "Artist 7",
+//                 availability: "2021-09-01",
+//             } 
+//         ]
+//     },
+//     {
+//         user_id: 2,
+//         name: "Jane",
+//         email: "jane@gmail.com",
+//         phone: "1234567890",
+//         dob: "01/01/2000",
+//             preferences: [
+//                 {
+//                 artist: "Artist 1",
+//                 availability: "2021-09-01",
+//             } 
+//         ]
+//     },
+// ]
+
+function over18(dob) {
+    age = parseInt(moment(dob).fromNow().split(" ")[0])
+    console.log(age)
+    if(age >= 18){
+        return true
     }
-    if(time() - $birthday < $age * 31536000)  {
-        return false;
-    }
-
-    return true;
+    return false
 }
 
-async function createBooking(booking){
-    const newBooking = {
-        user_id: bookings.length + 1,
-        ...booking
+async function createBooking(booking) {
+    if(!over18(booking.dob, 18)){
+        throw new Error("You must be 18 years or older to book an appointment")
     }
+    const newBooking = await Booking.create(booking)
     return newBooking
 }
 
 
-function getBookings() {
+async function getBookings() {
+    const bookings = await Booking.find();
     return bookings;
 }
 
-function getBookingsById(bookingId) {
-    const booking = bookings[bookingId];
+async function getBookingsById(bookingId) {
+    try {
+    const booking = await Booking.findById(bookingId);
     return booking;
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 function getBookingsByUserId(userId) {
-    const bookingByUserId = bookings.find(booking => booking.user_id == userId);
+    const bookingByUserId = Booking.find(booking => booking.user_id == userId);
     return bookingByUserId;
 }
 
 module.exports = {
     getBookings,
     getBookingsById,
-    validateAge,
     createBooking,
     getBookingsByUserId,
 
