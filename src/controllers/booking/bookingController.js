@@ -2,7 +2,8 @@ const express = require("express");
 // const Booking = require("../../models/booking.js");
 
 const bookings = [
-    {
+    { 
+        user_id: 1,
         name: "John",
         email: "john@gmail.com",
         phone: "1234567890",
@@ -14,6 +15,7 @@ const bookings = [
         ]
     },
     {
+        user_id: 2,
         name: "Jane",
         email: "jane@gmail.com",
         phone: "1234567890",
@@ -26,18 +28,24 @@ const bookings = [
     },
 ]
 
-function validateAge(dob) {
-    if(dob < 1/1/2005){
-        return false
+function validateAge($birthday, $age = 18)
+{
+    if(is_string($birthday)) {
+        $birthday = strtotime($birthday);
     }
+    if(time() - $birthday < $age * 31536000)  {
+        return false;
+    }
+
+    return true;
 }
 
-function createBooking(booking){
-    const newbooking =  {
-        id: 4,
-        ...booking,
+async function createBooking(booking){
+    const newBooking = {
+        user_id: bookings.length + 1,
+        ...booking
     }
-    return newbooking
+    return newBooking
 }
 
 
@@ -46,8 +54,13 @@ function getBookings() {
 }
 
 function getBookingsById(bookingId) {
-    const booking = bookings[bookingId]
-    return booking
+    const booking = bookings[bookingId];
+    return booking;
+}
+
+function getBookingsByUserId(userId) {
+    const bookingByUserId = bookings.find(booking => booking.user_id == userId);
+    return bookingByUserId;
 }
 
 module.exports = {
@@ -55,5 +68,6 @@ module.exports = {
     getBookingsById,
     validateAge,
     createBooking,
+    getBookingsByUserId,
 
 }
