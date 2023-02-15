@@ -1,0 +1,1 @@
+// TODO(jyenese): create two seperate routes for gallerys, and artists

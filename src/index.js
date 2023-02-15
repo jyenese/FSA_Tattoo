@@ -2,10 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = 3000;
+const userRouters = require('./controllers/users/userRoutes.js');
 const bookingRouter = require('./controllers/booking/bookingRoutes.js');
 app.use(express.json());
 
 app.use("/bookings", bookingRouter);
+app.use("/users", userRouters);
 
 app.get("/", (req, res) => {
     res.json({

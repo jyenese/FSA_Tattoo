@@ -49,6 +49,11 @@ async function createBooking(booking) {
     return newBooking
 }
 
+async function deleteBooking(bookingId) {
+    const deleteBooking = await Booking.findByIdAndDelete(bookingId);
+    return deleteBooking
+}
+
 
 async function getBookings() {
     const bookings = await Booking.find();
@@ -74,5 +79,6 @@ module.exports = {
     getBookingsById,
     createBooking,
     getBookingsByUserId,
+    deleteBooking,
 
 }
