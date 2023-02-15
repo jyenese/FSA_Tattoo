@@ -28,4 +28,15 @@ userRouter.post("/login", async (req, res) => {
     return res.json({ token })
 })
 
+userRouter.post("/login/artist", async (req, res) => {
+    const token = await loginUser({
+        email: req.body.email,
+        password: req.body.password
+    })
+    if(token.error) {
+        return res.status(400).json({data: token.error})
+    }
+    return res.json({ token })
+})
+
 module.exports = userRouter;

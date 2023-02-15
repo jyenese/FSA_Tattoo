@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const User = require('../../models/user');
+const Artist = require('../../models/artist');
 
 async function registerUser(user) {
     const existingUser = await User.findOne({ email: user.email })
@@ -37,6 +38,10 @@ async function loginUser(user) {
     }
     const token = jwt.sign(payload,"secret")
     return token
+}
+
+async function loginArtist(user) {
+    
 }
 
 module.exports = {
