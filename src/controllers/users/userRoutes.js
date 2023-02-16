@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { registerUser, loginUser, loginArtist, } = require("./userControllers")
+const { registerUser, loginUser, loginAdmin, } = require("./userControllers")
 
 const userRouter = express.Router();
 
@@ -28,9 +28,9 @@ userRouter.post("/users", async (req, res) => {
     return res.json({ token })
 })
 
-userRouter.post("/artist", async (req, res) => {
-    const token = await loginArtist({
-        email: req.body.email,
+userRouter.post("/admin", async (req, res) => {
+    const token = await loginAdmin({
+        username: req.body.username,
         password: req.body.password
     })
     if(token.error) {
