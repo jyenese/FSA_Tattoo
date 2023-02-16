@@ -5,14 +5,20 @@ const { getBookings,
         getBookingsByUserId,
         deleteBooking,
  } = require("./bookingController.js");
+
+const auth = require("../../middleware/auth.js");
+const admin = require("../../middleware/admin.js");
+
 const bookingRouter = express.Router();
+
+
 
 bookingRouter.get("/", async (req, res) => {
     const bookings = await getBookings();
     return res.json(bookings)
 })
 
-bookingRouter.post("/new", async (req, res) => {
+bookingRouter.post("/new", auth, async (req, res) => {
     // TODO(jyenese): validate request body
     // TODO(jyenese): delete this console.log
     
@@ -54,7 +60,7 @@ bookingRouter.post("/new", async (req, res) => {
     
 })
 
-bookingRouter.delete("/:bookingId", async (req, res) => {
+bookingRouter.delete("/:bookingId", admin, async (req, res) => {
     const booking = await deleteBooking(req.params.bookingId);
     if(booking){
         return res.json({

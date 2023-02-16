@@ -40,16 +40,18 @@ async function loginUser(user) {
 }
 
 async function loginArtist(artist){
-    const existingArtist = await Artist.findOne({ email: artist.email })
+// TODO: take out [a] and [b] tags on errors
+    const existingArtist = await Artist.findOne({ username: artist.username })
     if(!existingArtist) {
-        return { error: "Email or password is incorrect" }
+        return { error: "[a]Email or password is incorrect" }
     }
     const passwordMatch = await bcrypt.compare(artist.password, existingArtist.password)
     if(!passwordMatch) {
-        return { error: "Email or password is incorrect" }
+        return { error: "[b]Email or password is incorrect" }
     }
     const payload = {
         id: existingArtist._id,
+        is_admin: true,
     }
     const token = jwt.sign(payload,"secret")
     return token

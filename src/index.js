@@ -7,7 +7,7 @@ const bookingRouter = require('./controllers/booking/bookingRoutes.js');
 app.use(express.json());
 
 app.use("/bookings", bookingRouter);
-app.use("/users", userRouters);
+app.use("/login", userRouters);
 
 app.get("/", (req, res) => {
     res.json({
