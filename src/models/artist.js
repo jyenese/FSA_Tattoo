@@ -1,8 +1,22 @@
 const mongoose = require('mongoose');
 
 const ArtistSchema = new mongoose.Schema({
-    username: String,
-    password: String,
+    name: {
+        type: String,
+        required: true
+    },
+    styleSpeciality: {
+        type: String,
+        required: true
+    },
+    workedAsArtist: {
+        type: String,
+        required: true
+    },
+    availablity: {
+        type: Boolean,
+        required: true
+    }
 })
 
 const Artist = mongoose.model('Artist', ArtistSchema);

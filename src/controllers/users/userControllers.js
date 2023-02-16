@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const User = require('../../models/user');
-const Artist = require('../../models/artist');
+const Admin = require('../../models/Admin');
 
 async function registerUser(user) {
     const existingUser = await User.findOne({ email: user.email })
@@ -39,18 +39,19 @@ async function loginUser(user) {
     return token
 }
 
-async function loginArtist(artist){
+async function loginAdmin(admin){
 // TODO: take out [a] and [b] tags on errors
-    const existingArtist = await Artist.findOne({ username: artist.username })
-    if(!existingArtist) {
+// TODO: fix up the login for Admin [wont work]
+    const existingAdmin = await Admin.findOne({ username: admin.username })
+    if(!existingAdmin) {
         return { error: "[a]Email or password is incorrect" }
     }
-    const passwordMatch = await bcrypt.compare(artist.password, existingArtist.password)
+    const passwordMatch = await bcrypt.compare(admin.password, existingAdmin.password)
     if(!passwordMatch) {
         return { error: "[b]Email or password is incorrect" }
     }
     const payload = {
-        id: existingArtist._id,
+        id: existingAdmin._id,
         is_admin: true,
     }
     const token = jwt.sign(payload,"secret")
@@ -60,5 +61,5 @@ async function loginArtist(artist){
 module.exports = {
     registerUser,
     loginUser,
-    loginArtist,
+    loginAdmin,
 }
