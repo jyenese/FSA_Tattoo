@@ -39,4 +39,4 @@ userRouter.post("/login/artist", async (req, res) => {
     return res.json({ token })
 })
 
-module.exports = userRouter;
+module.exports = userRouter; 

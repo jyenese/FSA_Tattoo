@@ -24,7 +24,6 @@ async function registerUser(user) {
 }
 
 async function loginUser(user) {
-    // TODO(jyenese): finish off loginuser function
     const existingUser = await User.findOne({ email: user.email })
     if(!existingUser) {
         return { error: "Email or password is incorrect" }
@@ -40,11 +39,24 @@ async function loginUser(user) {
     return token
 }
 
-async function loginArtist(user) {
-    
+async function loginArtist(artist){
+    const existingArtist = await Artist.findOne({ email: artist.email })
+    if(!existingArtist) {
+        return { error: "Email or password is incorrect" }
+    }
+    const passwordMatch = await bcrypt.compare(artist.password, existingArtist.password)
+    if(!passwordMatch) {
+        return { error: "Email or password is incorrect" }
+    }
+    const payload = {
+        id: existingArtist._id,
+    }
+    const token = jwt.sign(payload,"secret")
+    return token
 }
 
 module.exports = {
     registerUser,
     loginUser,
+    loginArtist,
 }
