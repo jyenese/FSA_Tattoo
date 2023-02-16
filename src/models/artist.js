@@ -13,7 +13,7 @@ const ArtistSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    availablity: {
+    availability: {
         type: Boolean,
         required: true
     }

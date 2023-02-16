@@ -11,7 +11,13 @@ async function createArtist(artist) {
     return newArtist
 }
 
+async function deleteArtist(artistId) {
+    const deleteArtist = await Artist.findByIdAndDelete(artistId);
+    return deleteArtist
+}
+
 module.exports = {
     getArtists,
-    createArtist
+    createArtist,
+    deleteArtist,
 }
