@@ -1,4 +1,5 @@
 const express = require('express');
+const { getArtists, createArtist } = require('./showcaseController');
 
 const auth = require('../../middleware/auth');
 const admin = require('../../middleware/admin');
@@ -23,3 +24,5 @@ showcaseRouter.post("/", admin, async (req, res) => {
         })
     }
 })
+
+module.exports = showcaseRouter;
