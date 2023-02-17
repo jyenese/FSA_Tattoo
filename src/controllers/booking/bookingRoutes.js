@@ -19,9 +19,6 @@ bookingRouter.get("/", async (req, res) => {
 })
 
 bookingRouter.post("/new", auth, async (req, res) => {
-    // TODO(jyenese): validate request body
-    // TODO(jyenese): delete this console.log
-    
     console.log(req.body)
     try {
         const booking = await createBooking({

@@ -40,15 +40,14 @@ async function loginUser(user) {
 }
 
 async function loginAdmin(user){
-// TODO: take out [a] and [b] tags on errors
 // TODO: fix up the login for Admin [wont work]
     const existingAdmin = await Admin.findOne({ username: user.username })
     if(!existingAdmin) {
-        return { error: "[a]Email or password is incorrect" }
+        return { error: "Email or password is incorrect" }
     }
     const passwordMatch = await bcrypt.compare(user.password, existingAdmin.password)
     if(!passwordMatch) {
-        return { error: "[b]Email or password is incorrect" }
+        return { error: "Email or password is incorrect" }
     }
     const payload = {
         id: existingAdmin._id,

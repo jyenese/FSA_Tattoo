@@ -5,6 +5,7 @@ const { registerUser, loginUser, loginAdmin, } = require("./userControllers")
 const userRouter = express.Router();
 
 userRouter.post("/register", async (req, res) => {
+    try {
     const token = await registerUser({
         name: req.body.name,
         email: req.body.email,
@@ -14,6 +15,12 @@ userRouter.post("/register", async (req, res) => {
     if(token.error) {
         return res.status(400).json({data: token.error})
     }
+} catch (error) {
+    console.error(error)
+    return res.status(400).json({
+        error: `error creating user: ${error.message}`
+    })
+}
     return res.json({ token })
 })
 
