@@ -4,6 +4,9 @@ const { getBookings,
         createBooking,
         getBookingsByUserId,
         deleteBooking,
+        getPricing,
+        updatePricing,
+        createPricing,
  } = require("./bookingController.js");
 
 const auth = require("../../middleware/auth.js");
@@ -13,12 +16,12 @@ const bookingRouter = express.Router();
 
 
 
-bookingRouter.get("/", async (req, res) => {
+bookingRouter.get("/", admin, async (req, res) => {
     const bookings = await getBookings();
     return res.json(bookings)
 })
 
-bookingRouter.post("/new", auth, async (req, res) => {
+bookingRouter.post("/new",auth,async (req, res) => {
     console.log(req.body)
     try {
         const booking = await createBooking({
@@ -57,7 +60,7 @@ bookingRouter.post("/new", auth, async (req, res) => {
     
 })
 
-bookingRouter.delete("/:bookingId", admin, async (req, res) => {
+bookingRouter.delete("/:bookingId",admin, async (req, res) => {
     const booking = await deleteBooking(req.params.bookingId);
     if(booking){
         return res.json({
@@ -72,7 +75,7 @@ bookingRouter.delete("/:bookingId", admin, async (req, res) => {
     return res.json(booking) 
 })
 
-bookingRouter.get("/new/:userId", async (req, res) => {
+bookingRouter.get("/new/:userId",admin, async (req, res) => {
     const booking = await getBookingsByUserId(req.params.userId);
     if(!booking){
         return res.status(404).json({
@@ -82,7 +85,7 @@ bookingRouter.get("/new/:userId", async (req, res) => {
     return res.json(booking)
 })
 
-bookingRouter.get("/:bookingId",async (req, res) => {
+bookingRouter.get("/list/:bookingId", admin, async (req, res) => {
     const booking = await getBookingsById(req.params.bookingId);
     if(!booking){
         return res.status(404).json({
@@ -92,6 +95,62 @@ bookingRouter.get("/:bookingId",async (req, res) => {
     return res.json(booking)
 })
 
+bookingRouter.get("/pricing", async (req, res) => {
+    const pricing = await getPricing();
+    return res.json(pricing)
+})
+
+bookingRouter.post("/pricing",admin, async (req, res) => {
+    try {
+        const pricing = await createPricing({
+            deposit: req.body.deposit,
+            small: req.body.small,
+            medium: req.body.medium,
+            large: req.body.large,
+            juniorTatArtist: req.body.juniorTatArtist,
+            midTatArtist: req.body.midTatArtist,
+            professionalArtist: req.body.professionalArtist,
+            experiencedArtist: req.body.experiencedArtist,
+        })
+        if(pricing){
+            return res.json({
+                message: `Pricing has been successfully created`,
+            })
+        }
+    } catch (error) {
+        console.error(error)
+        return res.status(400).json({
+            error: `error creating pricing: ${error.message}`
+        })   
+    }
+    }
+)
+
+bookingRouter.put("/pricing/:pricingId",admin, async (req, res) => {
+    try {
+        const pricing = await updatePricing(req.params.pricingId, {
+            deposit: req.body.deposit,
+            small: req.body.small,
+            medium: req.body.medium,
+            large: req.body.large,
+            juniorTatArtist: req.body.juniorTatArtist,
+            midTatArtist: req.body.midTatArtist,
+            professionalArtist: req.body.professionalArtist,
+            experiencedArtist: req.body.experiencedArtist,
+        })
+        if(pricing){
+            return res.json({
+                message: `Pricing has been successfully updated`,
+            })
+        }
+    } catch (error) {
+        console.error(error)
+        return res.status(400).json({
+            error: `error updating pricing: ${error.message}`
+        })   
+    }
+    }
+)
 
 
 module.exports = bookingRouter;

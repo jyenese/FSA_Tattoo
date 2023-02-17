@@ -38,5 +38,5 @@ module.exports = {
     deleteArtist,
     getStyles,
     createStyles,
-    deleteStyles
+    deleteStyles,
 }

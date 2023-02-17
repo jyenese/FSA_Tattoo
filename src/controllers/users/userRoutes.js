@@ -15,13 +15,13 @@ userRouter.post("/register", async (req, res) => {
     if(token.error) {
         return res.status(400).json({data: token.error})
     }
+    return res.json({ token })
 } catch (error) {
     console.error(error)
     return res.status(400).json({
         error: `error creating user: ${error.message}`
     })
-}
-    return res.json({ token })
+    }
 })
 
 userRouter.post("/users", async (req, res) => {

@@ -1,5 +1,6 @@
 const express = require("express");
 const Booking = require("../../models/booking");
+const Pricing = require("../../models/pricing");
 
 const moment = require("moment");
 
@@ -69,9 +70,24 @@ async function getBookingsById(bookingId) {
     }
 }
 
-function getBookingsByUserId(userId) {
-    const bookingByUserId = Booking.find(booking => booking.user_id == userId);
+async function getBookingsByUserId(userId) {
+    const bookingByUserId = await Booking.find(booking => booking.user_id == userId);
     return bookingByUserId;
+}
+
+async function getPricing(){
+    const pricing = await Pricing.find();
+    return pricing;
+}
+
+async function updatePricing(pricingId, pricing){
+    const updatePricing = await Pricing.findByIdAndUpdate(pricingId, pricing, {new: true});
+    return updatePricing;
+}
+
+async function createPricing(pricing){
+    const newPricing = await Pricing.create(pricing);
+    return newPricing;
 }
 
 module.exports = {
@@ -80,5 +96,7 @@ module.exports = {
     createBooking,
     getBookingsByUserId,
     deleteBooking,
-
+    getPricing,
+    updatePricing,
+    createPricing,
 }
