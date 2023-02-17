@@ -19,7 +19,7 @@ userRouter.post("/register", async (req, res) => {
 } catch (error) {
     console.error(error)
     return res.status(400).json({
-        error: `error creating user: ${error.message}`
+        error: `${error.message}`
     })
     }
 })

@@ -54,7 +54,7 @@ bookingRouter.post("/new",auth,async (req, res) => {
     } catch (error) {
         console.error(error)
         return res.status(400).json({
-            error: `error creating booking: ${error.message}`
+            error: `${error.message}`
         })   
     }
     
@@ -120,7 +120,7 @@ bookingRouter.post("/pricing",admin, async (req, res) => {
     } catch (error) {
         console.error(error)
         return res.status(400).json({
-            error: `error creating pricing: ${error.message}`
+            error: `${error.message}`
         })   
     }
     }
@@ -146,7 +146,7 @@ bookingRouter.put("/pricing/:pricingId",admin, async (req, res) => {
     } catch (error) {
         console.error(error)
         return res.status(400).json({
-            error: `error updating pricing: ${error.message}`
+            error: `${error.message}`
         })   
     }
     }

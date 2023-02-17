@@ -1,8 +1,13 @@
 const mongoose = require('mongoose');
 
 const GallerySchema = new mongoose.Schema({
-    gallery_id: {
-        type: Number,
+    title: {
+        type: String,
+        required: true,
+    },
+    style_id:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Style',
     }
 })
 

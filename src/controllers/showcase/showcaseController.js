@@ -1,6 +1,7 @@
 const express = require('express');
 const Artist = require('../../models/artist');
 const Styles = require('../../models/styles');
+const Gallery = require('../../models/gallery');
 
 async function getArtists() {
     const artist = await Artist.find();
@@ -32,6 +33,21 @@ async function deleteStyles(styleId){
     return deleteStyle
 }
 
+async function getGallery(){
+    const gallery = await Gallery.find();
+    return gallery;
+}
+
+async function createGallery(gallery){
+    const newGallery = await Gallery.create(gallery)
+    return newGallery
+}
+
+async function deleteGallery(galleryId){
+    const deleteGallery = await Gallery.findByIdAndDelete(galleryId);
+    return deleteGallery
+}
+
 module.exports = {
     getArtists,
     createArtist,
@@ -39,4 +55,7 @@ module.exports = {
     getStyles,
     createStyles,
     deleteStyles,
+    getGallery,
+    createGallery,
+    deleteGallery
 }

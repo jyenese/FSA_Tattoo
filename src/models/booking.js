@@ -11,7 +11,13 @@ const BookingSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        validate: {
+            validator: (value) => {
+                return value.includes("@")
+            },
+            message: "Email must include an @ symbol"
+        }
     },
     phoneNumber: {
         type: String,
