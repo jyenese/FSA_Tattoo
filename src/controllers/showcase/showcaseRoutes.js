@@ -3,9 +3,6 @@ const {
 	getArtists,
 	createArtist,
 	deleteArtist,
-	getStyles,
-	createStyles,
-	deleteStyles,
     getGallery,
     createGallery,
     deleteGallery
@@ -25,9 +22,9 @@ showcaseRouter.post("/artists", admin, async (req, res) => {
 	try {
 		const artist = await createArtist({
 			name: req.body.name,
-			styleSpeciality: req.body.styleSpeciality,
-			workedAsArtist: req.body.workedAsArtist,
-			availability: req.body.availability,
+            yoe: req.body.yoe,
+            available: req.body.available,
+            link: req.body.link
 		});
 		if (artist) {
 			return res.json({
@@ -58,45 +55,6 @@ showcaseRouter.delete("artists/:artistId", admin, async (req, res) => {
 	}
 });
 
-showcaseRouter.get("/styles", auth, async (req, res) => {
-	const styles = await getStyles();
-	return res.json(styles);
-});
-
-showcaseRouter.post("/styles", admin, async (req, res) => {
-	try {
-		const style = await createStyles({
-			title: req.body.title,
-			description: req.body.description,
-		});
-		if (style) {
-			return res.json({
-				message: `Style has been successfully created!`,
-			});
-		}
-	} catch (error) {
-		console.error(error);
-		return res.status(400).json({
-			error: `${error.message}`,
-		});
-	}
-});
-
-showcaseRouter.delete("/styles/:styleId", admin, async (req, res) => {
-	try {
-		const style = await deleteStyles(req.params.styleId);
-		if (style) {
-			return res.json({
-				message: `Style has been successfully deleted!`,
-			});
-		}
-	} catch (error) {
-		console.error(error);
-		return res.status(400).json({
-			error: `${error.message}`,
-		});
-	}
-});
 
 showcaseRouter.get("/gallery", auth, async (req, res) => {
 	const gallery = await getGallery();
@@ -105,11 +63,11 @@ showcaseRouter.get("/gallery", auth, async (req, res) => {
 
 showcaseRouter.post("/gallery", admin, async (req, res) => {
     //TODO fix styleId in post and inside the model
+    console.log(req.body.styleId)
     try {
         const gallery = await createGallery({
-            title: req.body.title,
-            styleId: req.body.styleId,
-        });
+            image: req.body.image,
+        })
         if (gallery) {
             return res.json({
                 message: `Image has been successfully created!`,

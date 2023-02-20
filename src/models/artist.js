@@ -3,19 +3,19 @@ const mongoose = require('mongoose');
 const ArtistSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
     },
-    styleSpeciality: {
+    yoe: {
         type: String,
-        required: true
+        required: true,
     },
-    workedAsArtist: {
-        type: String,
-        required: true
-    },
-    availability: {
+    available: {
         type: Boolean,
-        required: true
+        required: true,
+    },
+    link:{
+        type: String,
+        required: true,
     }
 })
 
