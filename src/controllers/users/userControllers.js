@@ -19,7 +19,7 @@ async function registerUser(user) {
     const payload = {
         id: userCreated._id,
     }
-    const token = jwt.sign(payload, "secret")
+    const token = jwt.sign(payload, process.env.JWT_SECRET)
     return token
 }
 
@@ -35,7 +35,7 @@ async function loginUser(user) {
     const payload = {
         id: existingUser._id,
     }
-    const token = jwt.sign(payload,"secret")
+    const token = jwt.sign(payload,process.env.JWT_SECRET)
     return token
 }
 
@@ -53,7 +53,7 @@ async function loginAdmin(user){
         id: existingAdmin._id,
         is_admin: true,
     }
-    const token = jwt.sign(payload,"secret")
+    const token = jwt.sign(payload,process.env.JWT_SECRET)
     return token
 }
 

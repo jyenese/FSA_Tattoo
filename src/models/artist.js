@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+
+//TODO fix the schema validation
 const ArtistSchema = new mongoose.Schema({
     name: {
         type: String,

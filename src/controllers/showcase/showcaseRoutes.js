@@ -62,19 +62,18 @@ showcaseRouter.get("/gallery", auth, async (req, res) => {
 });
 
 showcaseRouter.post("/gallery", admin, async (req, res) => {
-    //TODO fix styleId in post and inside the model
-    console.log(req.body.styleId)
     try {
         const gallery = await createGallery({
             image: req.body.image,
         })
         if (gallery) {
+            console.log("Image has been successfully created!")
             return res.json({
                 message: `Image has been successfully created!`,
             });
         }
     } catch (error) {
-        console.error(error);
+        console.error("ERROR: " + error);
         return res.status(400).json({
             error: `${error.message}`,
         });
@@ -82,19 +81,19 @@ showcaseRouter.post("/gallery", admin, async (req, res) => {
 })
 
 showcaseRouter.delete("/gallery/:galleryId", admin, async (req, res) => {
+    console.log("Deleting a gallery...")
     try {
-        const gallery = await deleteGallery(req.params.galleryId);
-        if (gallery) {
-            return res.json({
-                message: `Image has been successfully deleted!`,
-            });
-        }
-    } catch (error) {
-        console.error(error);
-        return res.status(400).json({
-            error: `${error.message}`,
+        await deleteGallery(req.params.galleryId);
+        return res.json({
+            message: `Image has been successfully deleted!`,
+        });
+    } catch (err) {
+        return res.json({
+            message: `Image has not been deleted!`,
         });
     }
 })
+
+
 
 module.exports = showcaseRouter;
