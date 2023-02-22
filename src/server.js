@@ -9,13 +9,13 @@ const showcaseRouter = require('./controllers/showcase/showcaseRoutes.js');
 const communityRouter = require('./controllers/community/communityRoutes.js');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3005;
 
 app.use(express.json());
 app.use(helmet())
 
 const corsOptions = {
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3005"],
     optionSuccessStatus: 200,
 }
 
