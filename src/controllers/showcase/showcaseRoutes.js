@@ -62,8 +62,6 @@ showcaseRouter.get("/gallery", auth, async (req, res) => {
 });
 
 showcaseRouter.post("/gallery", admin, async (req, res) => {
-    //TODO fix styleId in post and inside the model
-    console.log(req.body.styleId)
     try {
         const gallery = await createGallery({
             image: req.body.image,

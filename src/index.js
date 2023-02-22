@@ -5,11 +5,13 @@ const PORT = 3000;
 const userRouters = require('./controllers/users/userRoutes.js');
 const bookingRouter = require('./controllers/booking/bookingRoutes.js');
 const showcaseRouter = require('./controllers/showcase/showcaseRoutes.js');
+const communityRouter = require('./controllers/community/communityRoutes.js');
 app.use(express.json());
 
 app.use("/bookings", bookingRouter);
 app.use("/login", userRouters);
 app.use("/showcase", showcaseRouter);
+app.use("/community", communityRouter);
 
 
 app.get("/", (req, res) => {
