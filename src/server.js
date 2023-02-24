@@ -15,10 +15,10 @@ app.use(express.json());
 app.use(helmet())
 
 const corsOptions = {
-    origin: ["http://localhost:3005"],
-    optionSuccessStatus: 200,
+    AccessControlAllowOrigin: ["http://127.0.0.1:5173"],
+    credentials: true,
+    optionSuccessStatus: 200, 
 }
-
 app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
