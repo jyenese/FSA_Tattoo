@@ -1,5 +1,8 @@
 const jwt = require('jsonwebtoken');
 
+// This code is used to verify that the user is logged in or not
+// Functions used are auth, req, res, next, token, payload, jwt
+
 function auth(req, res, next) {
     let token = req.get('Authorization');
     token = token?.split(' ')?.[1];

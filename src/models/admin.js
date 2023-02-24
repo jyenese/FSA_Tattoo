@@ -1,3 +1,5 @@
+// The schema defines the structure of the data in the database.
+// The schema also provides methods for accessing the data.
 const mongoose = require('mongoose');
 
 const AdminSchema = new mongoose.Schema({

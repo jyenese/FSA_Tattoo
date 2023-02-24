@@ -3,81 +3,42 @@ const mongoose = require('mongoose')
 const BookingSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        required: true
+        required: true,
     },
     lastName: {
         type: String,
-        required: true
-    },
-    email: {
-        type: String,
         required: true,
-        validate: {
-            validator: (value) => {
-                return value.includes("@")
-            },
-            message: "Email must include an @ symbol"
-        }
-    },
-    phoneNumber: {
-        type: String,
-        required: true
-    },
-    address: {
-        type: String,
-        required: true
     },
     dob: {
-        type: String,
-        required: true
+        type: Date,
+        required: true,
     },
-    travelTime: {
+    email: {
+        // This is a validation for the email field to make sure the email has an "@" symbol for the email to be valid
         type: String,
+        required: true,
+        validate (value) {
+            if(!value.includes('@')){
+                throw new Error('Email must include @ symbol')
+            }
+        }
     },
-    tattooLocation: {
+    phone: {
         type: String,
-        required: true
-    },
-    leftOrRight: {
-        type: String,
-    },
-    style: {
-        type: String,
-    },
-    artist: {
-        type: String,
+        required: true,
     },
     description: {
         type: String,
     },
-    size: {
-        type: String,
-    },
-    existingTattooOnLocation: {
-        type: String,
-        required: true
-    },
-    coverUp: {
-        type: String,
+    deposit: {
+        // This is a validation for the deposit field to make sure the deposit is over 100 for the booking to be valid
+        type: Number,
         required: true,
-    },
-    laser: {
-        type: String,
-        required: true,
-    },
-    timeToStart: {
-        type: String,
-    },
-    repeatClient: {
-        type: String,
-    },
-    pregnant: {
-        type: String,
-        required: true,
-    },
-    medicalConditions: {
-        type: String,
-        required: true,
+        validate (value) {
+            if(value < 100){
+                throw new Error('Deposit must be over 100')
+            }
+        }
     }
 
 

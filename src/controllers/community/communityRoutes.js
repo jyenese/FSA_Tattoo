@@ -6,10 +6,14 @@ const  { createReview, getReviews } = require("./communityController");
 
 const communityRouter = express.Router();
 
+// This function returns all the reviews in the database.
 communityRouter.get("/reviews", async (req, res) => {
     const reviews = await getReviews();
     return res.json(reviews)
 })
+
+// This code creates a new review and posts it to the database
+// The review class is a class that stores the artistname, description, tips, and rating of a review
 
 communityRouter.post("/reviews",async (req, res) => {
     console.log(req.body)

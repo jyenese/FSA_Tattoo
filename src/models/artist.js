@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+// This is the schema for the artist data
+// It has 4 fields: name, yoe, available, and link
 
 const ArtistSchema = new mongoose.Schema({
     name: {

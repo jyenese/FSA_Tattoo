@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 3005;
 app.use(express.json());
 app.use(helmet())
 
+//Front end connection
 const corsOptions = {
     AccessControlAllowOrigin: ["http://127.0.0.1:5173"],
     credentials: true,
@@ -27,6 +28,8 @@ app.get("/", (req, res) => {
     })
 })
 
+
+// ROUTES IN USE
 app.use("/bookings", bookingRouter);
 app.use("/login", userRouters);
 app.use("/showcase", showcaseRouter);

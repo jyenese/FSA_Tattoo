@@ -1,3 +1,6 @@
+// This code connects to the database, 
+// deletes anything in the "admin" collection, and creates a new admin account with the username "admin" and password "password". 
+
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 

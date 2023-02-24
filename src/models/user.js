@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Create a user schema to validate against
 const UserSchema = new mongoose.Schema({
     name: String,
     email: {
@@ -18,7 +19,6 @@ const UserSchema = new mongoose.Schema({
     },
     password: String,
 })
-
 const User = mongoose.model('User', UserSchema);
 
 module.exports = User;
