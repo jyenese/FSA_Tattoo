@@ -17,7 +17,7 @@ const bookingRouter = express.Router();
 
 
 // Get all bookings
-bookingRouter.get("/", admin, async (req, res) => {
+bookingRouter.get("/test", admin, async (req, res) => {
     const bookings = await getBookings();
     return res.json({ bookings })
 })
@@ -29,17 +29,18 @@ bookingRouter.get("/", admin, async (req, res) => {
 */
 
 
-bookingRouter.post("/new",auth,async (req, res) => {
+bookingRouter.post("/",auth,async (req, res) => {
     console.log(req.body)
     try {
         const booking = await createBooking({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            dob: req.body.dob,
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
             email: req.body.email,
-            phone: req.body.phone,
+            dob: req.body.dob,
+            phone_number: req.body.phone_number,
             description: req.body.description,
             deposit: req.body.deposit,
+            artist_name: req.body.artist_name,
         })
         if(booking){
             return res.json({

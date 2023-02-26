@@ -5,7 +5,7 @@ const Pricing = require("../../models/pricing");
 const moment = require("moment");
 
 // const bookings = [
-//     { 
+//     {
 //         user_id: 1,
 //         name: "John",
 //         email: "john@gmail.com",
@@ -15,7 +15,7 @@ const moment = require("moment");
 //                 {
 //                 artist: "Artist 7",
 //                 availability: "2021-09-01",
-//             } 
+//             }
 //         ]
 //     },
 //     {
@@ -28,49 +28,48 @@ const moment = require("moment");
 //                 {
 //                 artist: "Artist 1",
 //                 availability: "2021-09-01",
-//             } 
+//             }
 //         ]
 //     },
 // ]
 
 function over18(dob) {
-    // Convert date of birth to age
-    age = parseInt(moment(dob).fromNow().split(" ")[0])
+	// Convert date of birth to age
+	age = parseInt(moment(dob).fromNow().split(" ")[0]);
 
-    // Return true if age is 18 or older
-    if(age >= 18){
-        return true
-    }
+	// Return true if age is 18 or older
+	if (age >= 18) {
+		return true;
+	}
 
-    // Return false if age is under 18
-    return false
+	// Return false if age is under 18
+	return false;
 }
 
 async function createBooking(booking) {
-    // Validate age
-    if(!over18(booking.dob, 18)){
-        throw new Error("You must be 18 years or older to book an appointment")
-    }
+	// Validate age
+	if (!over18(booking.dob, 18)) {
+		throw new Error("You must be 18 years or older to book an appointment");
+	}
 
-    // Create booking
-    const newBooking = await Booking.create(booking)
-    return newBooking
+	// Create booking
+	const newBooking = await Booking.create(booking);
+	return newBooking;
 }
 
 // This function deletes a booking, given its bookingId.
 // The function returns the deleted booking.
 // The function is asynchronous, since it awaits the result of the query to the database.
 async function deleteBooking(bookingId) {
-    const deleteBooking = await Booking.findByIdAndDelete(bookingId);
-    return deleteBooking
+	const deleteBooking = await Booking.findByIdAndDelete(bookingId);
+	return deleteBooking;
 }
-
 
 // getBookings returns a list of all bookings
 
 async function getBookings() {
-    const bookings = await Booking.find();
-    return bookings;
+	const bookings = await Booking.find();
+	return bookings;
 }
 
 // This function gets information about a booking based on the bookingID.
@@ -78,12 +77,12 @@ async function getBookings() {
 // The function uses the mongoose function findById to find the booking by its ID.
 // It returns the booking information to the booking variable.
 async function getBookingsById(bookingId) {
-    try {
-    const booking = await Booking.findById(bookingId);
-    return booking;
-    } catch (error) {
-        console.log(error)
-    }
+	try {
+		const booking = await Booking.findById(bookingId);
+		return booking;
+	} catch (error) {
+		console.log(error);
+	}
 }
 
 // This function is used to get a list of bookings by a user's id
@@ -92,45 +91,48 @@ async function getBookingsById(bookingId) {
 // The function uses the find method to find the bookings
 // The function finds bookings where the user id matches the id passed into the function
 async function getBookingsByUserId(userId) {
-    const bookingByUserId = await Booking.find(booking => booking.user_id == userId);
-    return bookingByUserId;
+	const bookingByUserId = await Booking.find(
+		(booking) => booking.user_id == userId
+	);
+	return bookingByUserId;
 }
 
 // Get pricing information from database
-async function getPricing(){
-    const pricing = await Pricing.find();
-    return pricing;
+async function getPricing() {
+	const pricing = await Pricing.find();
+	return pricing;
 }
 
 /**
-* @param {String} pricingId - id of the pricing object to be updated
-* @param {Object} pricing - the new pricing object that will replace the old one
-* @returns {Object} the updated pricing object
-* @description Updates the pricing object with the given pricingId with the new pricing object
-*/
+ * @param {String} pricingId - id of the pricing object to be updated
+ * @param {Object} pricing - the new pricing object that will replace the old one
+ * @returns {Object} the updated pricing object
+ * @description Updates the pricing object with the given pricingId with the new pricing object
+ */
 
-async function updatePricing(pricingId, pricing){
-    const updatePricing = await Pricing.findByIdAndUpdate(pricingId, pricing, {new: true});
-    return updatePricing;
+async function updatePricing(pricingId, pricing) {
+	const updatePricing = await Pricing.findByIdAndUpdate(pricingId, pricing, {
+		new: true,
+	});
+	return updatePricing;
 }
 
 //This function creates a new pricing object in the database.
 //The function takes a pricing object as a parameter.
 //The function returns the new pricing object.
 
-
-async function createPricing(pricing){
-    const newPricing = await Pricing.create(pricing);
-    return newPricing;
+async function createPricing(pricing) {
+	const newPricing = await Pricing.create(pricing);
+	return newPricing;
 }
 
 module.exports = {
-    getBookings,
-    getBookingsById,
-    createBooking,
-    getBookingsByUserId,
-    deleteBooking,
-    getPricing,
-    updatePricing,
-    createPricing,
-}
+	getBookings,
+	getBookingsById,
+	createBooking,
+	getBookingsByUserId,
+	deleteBooking,
+	getPricing,
+	updatePricing,
+	createPricing,
+};

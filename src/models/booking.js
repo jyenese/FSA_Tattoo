@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
 const BookingSchema = new mongoose.Schema({
-    firstName: {
+    first_name: {
         type: String,
         required: true,
     },
-    lastName: {
+    last_name: {
         type: String,
         required: true,
     },
@@ -23,7 +23,7 @@ const BookingSchema = new mongoose.Schema({
             }
         }
     },
-    phone: {
+    phone_number: {
         type: String,
         required: true,
     },
@@ -39,6 +39,10 @@ const BookingSchema = new mongoose.Schema({
                 throw new Error('Deposit must be over 100')
             }
         }
+    },
+    artist_name: {
+        type: String,
+        required: true,
     }
 
 
