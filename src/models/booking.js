@@ -42,7 +42,6 @@ const BookingSchema = new mongoose.Schema({
     },
     artist_name: {
         type: String,
-        required: true,
     }
 
 

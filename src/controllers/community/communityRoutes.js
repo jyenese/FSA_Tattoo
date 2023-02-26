@@ -40,7 +40,7 @@ communityRouter.post("/reviews",async (req, res) => {
 
 communityRouter.put("/reviews/:reviewId", async (req, res) => {
     try {
-        const review = await updateReview({
+        const review = await updateReview(req.params.reviewId,{
             artistname: req.body.artistname,
             description: req.body.description,
             tips: req.body.tips,
@@ -62,7 +62,7 @@ communityRouter.put("/reviews/:reviewId", async (req, res) => {
 
 communityRouter.delete("/reviews/:reviewId", async (req, res) => {
     try {
-        const review = await deleteReview({
+        const review = await deleteReview(req.params.reviewId,{
             artistname: req.body.artistname,
             description: req.body.description,
             tips: req.body.tips,
@@ -81,40 +81,10 @@ communityRouter.delete("/reviews/:reviewId", async (req, res) => {
     }
     
 })
-//TODO combine these two together
-// communityRouter.get('/share',async (req, res) => {
-//     const share = await getShare();
-//     return res.json(share)
-// })
-
-// communityRouter.post("/share",async (req, res) => {
-//     console.log(req.body)
-// })
-
-// // This function returns all the totw in the database.
-// communityRouter.get("/totw", async (req, res) => {
-//     const totw = await getTotw();
-//     return res.json(totw)
-// })
-
-// communityRouter.post("/totw",async (req, res) => {
-//     console.log(req.body)
-//     try {
-//         const totw = await createTotw({
-//             //TODO: add the rest of the fields
-//         })
-//         if(totw){
-//             return res.json({
-//                 message: `Review has been successfully created, thanks!`,
-//             })
-//         }
-//     } catch (error) {
-//         console.error(error)
-//         return res.status(400).json({
-//             error: `${error.message}`
-//         })   
-//     }
-// })
+communityRouter.get("/share", async (req, res) => {
+    const share = await getShare();
+    return res.json(share)
+})
 
 
 module.exports = communityRouter;

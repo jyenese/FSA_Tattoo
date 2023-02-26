@@ -53,6 +53,7 @@ bookingRouter.post("/",auth,async (req, res) => {
             error: `${error.message}`
         })   
     }
+    return res.send(booking)
     
 })
 

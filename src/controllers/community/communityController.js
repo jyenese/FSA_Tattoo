@@ -15,13 +15,15 @@ async function createReview(review) {
 }
 
 // Updates a review
-async function updateReview(reviewId,review) {
-    const updatedReview = await Review.findByIdAndUpdate(reviewId,review)
+async function updateReview(reviewId, review) {
+    console.log(reviewId, review)
+    const updatedReview = await Review.findByIdAndUpdate(reviewId, review)
     return updatedReview
 }
 
-async function deleteReview(review){
-    const deletedReview = await Review.deleteOne(review)
+async function deleteReview(reviewId,review){
+    const deletedReview = await Review.findByIdAndDelete(reviewId,review
+    )
     return deletedReview
 }
 
