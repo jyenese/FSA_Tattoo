@@ -2,7 +2,15 @@ const mongoose = require('mongoose');
 
 // Create a user schema to validate against
 const UserSchema = new mongoose.Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true,
+        validate (value) {
+            if(value.length < 2){
+                throw new Error('Name must be at least 2 characters')
+            }
+        }
+    },
     email: {
         type: String,
         required: true,

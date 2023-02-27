@@ -4,10 +4,20 @@ const BookingSchema = new mongoose.Schema({
     first_name: {
         type: String,
         required: true,
+        validate (value) {
+            if(value.length < 2){
+                throw new Error('First name must be at least 2 characters')
+            }
+        }
     },
     last_name: {
         type: String,
         required: true,
+        validate (value){
+            if(value.length < 2){
+                throw new Error('Last name must be at least 2 characters')
+            }
+        }
     },
     dob: {
         type: Date,
@@ -26,6 +36,11 @@ const BookingSchema = new mongoose.Schema({
     phone_number: {
         type: String,
         required: true,
+        validate (value) {
+            if(value.length < 10){
+                throw new Error('Phone number must be at least 10 digits')
+            }
+        }
     },
     description: {
         type: String,

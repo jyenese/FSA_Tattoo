@@ -7,12 +7,23 @@ const ReviewSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true,
+        validate (value) {
+            if(value.length < 25){
+                throw new Error('Description must be at least 25 characters')
+            }
+        }
     },
     tips: {
         type: String,
     },
     rating: {
         type: Number,
+        required: true,
+        validate (value) {
+            if(value < 1 || value > 10){
+                throw new Error('Rating must be between 1 and 10')
+            }
+        }
     },
 })
 
