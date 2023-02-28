@@ -21,7 +21,9 @@ storeRouter.post("/", async (req, res) => {
     try {
         const store = await createStore({
             title: req.body.title,
+            description: req.body.description,
             price: req.body.price,
+            stock: req.body.stock,
         });
         //2. If the store was successfully created and saved in the database, return a success message
         if (store) {

@@ -20,25 +20,30 @@ communityRouter.get("/reviews", async (req, res) => {
 	return res.json(reviews);
 });
 
-// This code creates a new review and posts it to the database
-// The review class is a class that stores the artistname, description, tips, and rating of a review
-
+// define a new route that accepts POST requests to the /reviews endpoint
 communityRouter.post("/reviews", async (req, res) => {
+	// log the request body to the console for debugging
 	console.log(req.body);
 	try {
+		// call the createReview function
 		const review = await createReview({
+			// pass the artistname, description, tips and rating properties from the request body to the createReview function
 			artistname: req.body.artistname,
 			description: req.body.description,
 			tips: req.body.tips,
 			rating: req.body.rating,
 		});
+		// check if the review was created
 		if (review) {
+			// send a JSON response with a success message
 			return res.json({
 				message: `Review has been successfully created, thanks!`,
 			});
 		}
 	} catch (error) {
+		// log the error to the console for debugging
 		console.error(error);
+		// send a JSON response with an error message
 		return res.status(400).json({
 			error: `${error.message}`,
 		});
@@ -47,7 +52,9 @@ communityRouter.post("/reviews", async (req, res) => {
 
 communityRouter.put("/reviews/:reviewId", async (req, res) => {
 	try {
+		// Get reviewId from request parameters
 		const review = await updateReview(req.params.reviewId, {
+			// Get artistname, description, tips, and rating from request body
 			artistname: req.body.artistname,
 			description: req.body.description,
 			tips: req.body.tips,
@@ -55,25 +62,32 @@ communityRouter.put("/reviews/:reviewId", async (req, res) => {
 		});
 		if (review) {
 			return res.json({
+				// Return message to the client
 				message: `Review has been successfully updated!`,
 			});
 		}
 	} catch (error) {
 		console.error(error);
 		return res.status(400).json({
+			// Return error message to the client
 			error: `${error.message}`,
 		});
 	}
 });
 
+// This is the delete request to the API endpoint /reviews/:reviewId
+// It will delete the review that matches the reviewId in the API endpoint
 communityRouter.delete("/reviews/:reviewId", async (req, res) => {
 	try {
+		// This will call the deleteReview function from the database.js file
+		// which will delete the review from the database
 		const review = await deleteReview(req.params.reviewId, {
 			artistname: req.body.artistname,
 			description: req.body.description,
 			tips: req.body.tips,
 			rating: req.body.rating,
 		});
+		// If the review has been deleted, then it will send a message to the user
 		if (review) {
 			return res.json({
 				message: `Review has been successfully deleted!`,
@@ -86,24 +100,44 @@ communityRouter.delete("/reviews/:reviewId", async (req, res) => {
 		});
 	}
 });
+
+// Create a new GET route to retrieve the current share price
 communityRouter.get("/share", async (req, res) => {
+	// Retrieve the share price from the blockchain
 	const share = await getShare();
+	// Return the share price as JSON
 	return res.json(share);
 });
+
 //TODO figure out how to get user_id info out of the token
+// Create a new share
 communityRouter.post("/share",auth, async (req, res) => {
     try {
-    const share = await createShare(req.params.userId,{
-        title: req.body.title,
-        description: req.body.description,
-    })
-    if(share){
-        return res.json({
-            message: `Share has been successfully created, thanks!`,
+        // Get the user ID from the request parameters
+        const share = await createShare(req.params.userId,{
+            // Get the share title and description from the request body
+            title: req.body.title,
+            description: req.body.description,
         })
-    }
-    } catch (error) {
+        // If the share was created successfully
+        if(share){
+            // Return a success message
+            return res.json({
+                message: `Share has been successfully created, thanks!`,
+            })
+        }
+        // If the share was not created successfully
+        else{
+            // Return an error message
+            return res.status(400).json({
+                error: `Unable to create share`,
+            });
+        }
+    } 
+    // If there was an error
+    catch (error) {
         console.error(error);
+        // Return an error message
         return res.status(400).json({
             error: `${error.message}`,
         });
