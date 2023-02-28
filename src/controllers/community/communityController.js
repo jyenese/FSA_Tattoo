@@ -1,5 +1,7 @@
 const express = require("express");
 const Review = require("../../models/review");
+const Share = require("../../models/share");
+const User = require("../../models/user");
 
 // Gets reviews
 async function getReviews() {
@@ -26,11 +28,27 @@ async function deleteReview(reviewId,review){
     )
     return deletedReview
 }
+async function getUserIdForShare (userId){
+    const user = await User.findbyId({user_id: userId})
+    return user
+}
 
+async function createShare(share) {
+    const newShareWithUserId = await Share.create(share)
+    return newShareWithUserId
+}
+
+async function getShare(){
+    const share = await Share.find();
+    return share
+}
 
 module.exports = {
     createReview,
     getReviews,
     updateReview,
-    deleteReview
+    deleteReview,
+    getShare,
+    createShare,
+    getUserIdForShare,
 }

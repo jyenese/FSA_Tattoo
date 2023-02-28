@@ -7,7 +7,7 @@ const userRouters = require('./controllers/users/userRoutes.js');
 const bookingRouter = require('./controllers/booking/bookingRoutes.js');
 const showcaseRouter = require('./controllers/showcase/showcaseRoutes.js');
 const communityRouter = require('./controllers/community/communityRoutes.js');
-
+const storeRouter = require('./controllers/store/storeRoutes.js');
 const app = express();
 const PORT = process.env.PORT || 3005;
 
@@ -34,6 +34,7 @@ app.use("/bookings", bookingRouter);
 app.use("/login", userRouters);
 app.use("/showcase", showcaseRouter);
 app.use("/community", communityRouter);
+app.use("/store", storeRouter)
 
 module.exports = {
     app,
