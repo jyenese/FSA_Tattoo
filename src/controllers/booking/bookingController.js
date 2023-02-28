@@ -103,13 +103,8 @@ async function getPricing() {
 	return pricing;
 }
 
-/**
- * @param {String} pricingId - id of the pricing object to be updated
- * @param {Object} pricing - the new pricing object that will replace the old one
- * @returns {Object} the updated pricing object
- * @description Updates the pricing object with the given pricingId with the new pricing object
- */
-
+//This function updates the pricing object in the database.
+//The function takes a pricingId and a pricing object as parameters.
 async function updatePricing(pricingId, pricing) {
 	const updatePricing = await Pricing.findByIdAndUpdate(pricingId, pricing, {
 		new: true,
