@@ -17,7 +17,7 @@ const bookingRouter = express.Router();
 
 
 // Get all bookings
-bookingRouter.get("/test", admin, async (req, res) => {
+bookingRouter.get("/", async (req, res) => {
     const bookings = await getBookings();
     return res.json({ bookings })
 })
@@ -45,6 +45,7 @@ bookingRouter.post("/",auth,async (req, res) => {
         if(booking){
             return res.json({
                 message: `Booking has been successfully created, thanks!`,
+                booking: booking,
             })
         }
     } catch (error) {
@@ -60,7 +61,7 @@ bookingRouter.post("/",auth,async (req, res) => {
 // We are declaring a variable called booking and assigning it to the value of the function deleteBooking,
 // which takes the bookingId from the params and deletes it.
 // If the booking is successfully deleted, a message is returned. Otherwise, an error message is returned.
-bookingRouter.delete("/:bookingId",admin, async (req, res) => {
+bookingRouter.delete("/:bookingId", async (req, res) => {
     const booking = await deleteBooking(req.params.bookingId);
     if(booking){
         return res.json({

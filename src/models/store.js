@@ -9,6 +9,9 @@ const StoreSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    // image:{
+    //     required: true,
+    // },
     price: {
         type: Number,
         required: true,

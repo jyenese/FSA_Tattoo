@@ -38,6 +38,7 @@ communityRouter.post("/reviews", async (req, res) => {
 			// send a JSON response with a success message
 			return res.json({
 				message: `Review has been successfully created, thanks!`,
+				review: review,
 			});
 		}
 	} catch (error) {
@@ -109,13 +110,12 @@ communityRouter.get("/share", async (req, res) => {
 	return res.json(share);
 });
 
-//TODO figure out how to get user_id info out of the token
 // Create a new share
 communityRouter.post("/share",auth, async (req, res) => {
     try {
         // Get the user ID from the request parameters
-        const share = await createShare(req.params.userId,{
-            // Get the share title and description from the request body
+        const share = await createShare({
+            // Get the share
             title: req.body.title,
             description: req.body.description,
         })

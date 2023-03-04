@@ -22,6 +22,7 @@ storeRouter.post("/", async (req, res) => {
         const store = await createStore({
             title: req.body.title,
             description: req.body.description,
+            // image: req.body.image,
             price: req.body.price,
             stock: req.body.stock,
         });

@@ -23,8 +23,8 @@ async function updateReview(reviewId, review) {
     return updatedReview
 }
 
-async function deleteReview(reviewId,review){
-    const deletedReview = await Review.findByIdAndDelete(reviewId,review
+async function deleteReview(reviewId){
+    const deletedReview = await Review.findByIdAndDelete(reviewId
     )
     return deletedReview
 }
