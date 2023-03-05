@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 
 const Admin = require('./models/admin');
 
-mongoose.connect('mongodb://127.0.0.1:27017/fullstack_tattoo',async () => {
+mongoose.connect(proccess.env.MONGO_URI,async () => {
     await Admin.deleteMany({})
     const hashedPassword = await bcrypt.hash("password", 10)
     const admin = await Admin.create({

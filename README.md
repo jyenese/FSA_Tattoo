@@ -1,6 +1,9 @@
 #### T3A2-A Full Stack App – Part A
 Team: Jye CM, Chris L
 
+Website: https://garageinkfsa.netlify.app/
+Github: https://github.com/jyenese/FSA_Tattoo
+
 ### Working in a team (discord)
 
 On the day of release of Part A of the assessment Chris and I started up a discord server and split it up into multi avenues to stretch out as much information as possible. The trello board wasn't working for us as it wasn't as demanding on what needed to be done and what needed to be put on the back burner. We ended up commiting to having these channels setup to help out throughout the assessment:
