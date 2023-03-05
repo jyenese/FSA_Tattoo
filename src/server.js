@@ -16,7 +16,7 @@ app.use(helmet())
 
 //Front end connection
 const corsOptions = {
-    AccessControlAllowOrigin: ["http://127.0.0.1:5173"],
+    AccessControlAllowOrigin: ["http://127.0.0.1:5173",process.env.ALLOWED_ORIGIN],
     credentials: true,
     optionSuccessStatus: 200, 
 }

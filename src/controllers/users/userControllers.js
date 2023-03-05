@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken');
 const User = require('../../models/user');
 const Admin = require('../../models/admin');
 
+const SECRET = process.env.JWT_SECRET || "secret"
+
 // This function registers a user by checking if the user already exists, 
 
 // hashing the password, creating a user, and then signing a JWT with the user's ID as the payload.
@@ -23,7 +25,7 @@ async function registerUser(user) {
     const payload = {
         id: userCreated._id,
     }
-    const token = jwt.sign(payload, "secret")
+    const token = jwt.sign(payload, SECRET)
     return token
 }
 
@@ -45,7 +47,7 @@ async function loginUser(user) {
     const payload = {
         id: existingUser._id,
     }
-    const token = jwt.sign(payload,"secret")
+    const token = jwt.sign(payload,SECRET)
     return token
 }
 
