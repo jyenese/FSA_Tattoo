@@ -28,16 +28,15 @@ communityRouter.post("/reviews", async (req, res) => {
 		// call the createReview function
 		const review = await createReview({
 			// pass the artistname, description, tips and rating properties from the request body to the createReview function
-			artistname: req.body.artistname,
 			description: req.body.description,
-			tips: req.body.tips,
 			rating: req.body.rating,
+			tips: req.body.tips,
 		});
 		// check if the review was created
 		if (review) {
 			// send a JSON response with a success message
 			return res.json({
-				message: `Review has been successfully created, thanks!`,
+				message: `Review has been successfully created, please refresh to see the review!`,
 				review: review,
 			});
 		}
@@ -56,10 +55,9 @@ communityRouter.put("/reviews/:reviewId", async (req, res) => {
 		// Get reviewId from request parameters
 		const review = await updateReview(req.params.reviewId, {
 			// Get artistname, description, tips, and rating from request body
-			artistname: req.body.artistname,
 			description: req.body.description,
-			tips: req.body.tips,
 			rating: req.body.rating,
+			tips: req.body.tips,
 		});
 		if (review) {
 			return res.json({

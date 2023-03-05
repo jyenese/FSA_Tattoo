@@ -1,6 +1,38 @@
 #### T3A2-A Full Stack App – Part A
 Team: Jye CM, Chris L
 
+### Working in a team (discord)
+
+On the day of release of Part A of the assessment Chris and I started up a discord server and split it up into multi avenues to stretch out as much information as possible. The trello board wasn't working for us as it wasn't as demanding on what needed to be done and what needed to be put on the back burner. We ended up commiting to having these channels setup to help out throughout the assessment:
+
+![discord](images/discord.png)
+
+**TODO**
+
+As the first few lines of code began, we both downloaded a extension called "TODOS" which is great for tracking what needs to be done and if you get side tracked you can come back and know exactly whats going on and what needs to be fixed.
+
+![todo](images/TODO.png)
+![discord](images/TODO2.png)
+
+**Routes** 
+
+This channel was made to make it easier for the frontend to know what was and wasn't working. Once the route was setup, it got a green X to mark that it was complete, and ready to function for the front end as expected. This methology was very helpful to show what part each of Chris and myself were upto.
+
+![discord](images/routes.png)
+
+**Components**
+
+We split up the main components into seperate channels, (login, showcase, community, bookings) these where incredibly helpful for when one person wasn't available, you could just type into the channel and know that the other person knew exactly what you were talking about. 
+
+example for one of these "Bookings":
+![discord](images/BOOKINGS.png)
+
+**Github Commits**
+
+This channel has a discord bot setup to link a github repository with a channel using a webhook url. At first this wasn't included, but it was a fantastic idea to add in, as soon as something got commited, it would show up in the channel and tell the other person where you were upto. Was very helpful for when we got to the testing phase.
+
+![discord](images/DISCORDB.png)
+
 ## **Requirement 1**: 
 Description of your website including:
 - Purpose 

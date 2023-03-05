@@ -147,7 +147,7 @@ describe("Test the backend api", () => {
                 rating: "5",
             })
             expect(response.statusCode).toBe(200)
-            expect(response.body.message).toBe("Review has been successfully created, thanks!")
+            expect(response.body.message).toBe("Review has been successfully created, please refresh to see the review!")
             const review = response.body.review
 
             const listResponse = await api.get("/community/reviews").set("Authorization", `Bearer ${userToken}`)
@@ -161,10 +161,9 @@ describe("Test the backend api", () => {
         })
         it("should give a rating between 1 and 10", async () => {
             const response = await api.post("/community/reviews").set("Authorization", `Bearer ${userToken}`).send({
-                artistname: "Testing Artist",
                 description: "description",
-                tips: "testing tips",
                 rating: "50",
+                tips: "testing tips",
             })
             expect(response.statusCode).toBe(400)
             expect(response.body.error).toBe("Review validation failed: rating: Rating must be between 1 and 10")

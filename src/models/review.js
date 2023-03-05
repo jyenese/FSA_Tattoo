@@ -1,15 +1,9 @@
 const mongoose = require('mongoose');
 
 const ReviewSchema = new mongoose.Schema({
-    artistname: {
-        type: String,
-    },
     description: {
         type: String,
         required: true,
-    },
-    tips: {
-        type: String,
     },
     rating: {
         type: Number,
@@ -20,6 +14,9 @@ const ReviewSchema = new mongoose.Schema({
             }
         }
     },
+    tips: {
+        type: String,
+    }
 })
 
 const Review = mongoose.model('Review', ReviewSchema);
